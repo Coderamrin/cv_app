@@ -5,82 +5,140 @@ class Form extends React.Component {
     constructor() {
         super();
         this.state = {
-            generalInfo : {
-                name: "",
-                email: "",
-                phoneNum: "",
-            }
-        }
+            username: "",
+            email: "",
+            phone: "",
+            schoolName: "",
+            titleOfStd: "",
+            dateOfStd: "",
+            companyName: "",
+            position: "",
+            mainTask: "",
+            dateOfJob: ""
+        };
     }
 
-    handleNameChange = (e) => {
-        let generalInfo = this.state.generalInfo;
-        generalInfo.name = e.target.value;
+    handleChange = ({target}) => {
         this.setState({
-            generalInfo: generalInfo
+            [target.name]: target.value
         });
+
+        console.log(this.state);
     };
-
-    handleEmailChange = (e) => {
-        let generalInfo = this.state.generalInfo;
-        generalInfo.email = e.target.value;
-        this.setState({
-            generalInfo:generalInfo,
-        });
-    };
-
-    handlePhoneChange = (e) => {
-        let generalInfo = this.state.generalInfo;
-        generalInfo.phoneNum = e.target.value;
-        this.setState({
-            generalInfo:generalInfo,
-        })
-    }
-
 
     onSubmitTask = (e) => {
         e.preventDefault();
     }
 
     render () {
-        const {name, email, phoneNum} = this.state.generalInfo;
-
         return (
           <div className="form_container">
               <form onSubmit={this.onSubmitTask}>
-                  <label>Name:</label>
-                  <input type="text" onChange={this.handleNameChange} value={name} />
-                  <label>Email:</label>
-                  <input type="text" onChange={this.handleEmailChange} value={email} />
-                  <label>Phone Number:</label>
-                  <input type="text" onChange={this.handlePhoneChange} value={phoneNum}/>
-                  <button type="submit">Submit</button>
-                  <button>Edit</button>
-              </form>
-              {/* <form>
-                  <label>School Name:</label>
-                  <input type="text"/>
-                  <label>Title Of Study:</label>
-                  <input type="text"/>
-                  <label>Date Of Study:</label>
-                  <input type="text"/>
-                  <button type="submit">Submit</button>
-                  <button>Edit</button>
-             </form>
-             <form>  
-                  <label>Company Name:</label>
-                  <input type="text"/>
-                  <label>Position:</label>
-                  <input type="text"/>
-                  <label>Main Responsibility:</label>
-                  <input type="text"/>
-                  <label>Date of Your Job:</label>
-                  <input type="text"/>
-                  <button type="submit">Submit</button>
-                  <button>Edit</button>
-             </form>   */}
+                  <label htmlFor="username">Name:</label>
+                  <input 
+                  type="text" 
+                  name="username" 
+                  value={this.state.username} 
+                  onChange={this.handleChange}
+                  />
 
-             <DisplayInfo userName={name} email={email} phone={phoneNum}/>
+                  <label htmlFor="email">Email:</label>
+                  <input 
+                  type="text"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                  />
+
+                  <label htmlFor="phone">Phone Number:</label>
+                  <input 
+                  type="text"
+                  name="phone"
+                  value={this.state.phone}
+                  onChange={this.handleChange} 
+                  />
+
+                  <button type="submit">Submit</button>
+                  <button>Reset</button>
+              </form>
+              <form onSubmit={this.onSubmitTask}>
+                  <label htmlFor="schoolName">School Name:</label>
+                  <input 
+                  type="text"
+                  name="schoolName"
+                  value={this.state.schoolName}
+                  onChange={this.handleChange}
+                  />
+
+                  <label htmlFor="titleOfStd">Title Of Study:</label>
+                  <input 
+                   type="text"
+                   name="titleOfStd"
+                   value={this.state.titleOfStd}
+                   onChange={this.handleChange}
+                  />
+
+                  <label htmlFor="dateOfStd">Date Of Study:</label>
+                  <input 
+                  type="text"
+                  name="dateOfStd"
+                  value={this.state.dateOfStd}
+                  onChange={this.handleChange}
+                  />
+                  <button type="submit">Submit</button>
+                  <button>Reset</button>
+             </form>
+             <form onSubmit={this.onSubmitTask}>  
+                  <label htmlFor="companyName">Company Name:</label>
+                  <input
+                  type="text"
+                  name="companyName"
+                  value={this.state.companyName}
+                  onChange={this.handleChange}
+                  />
+
+                  <label htmlFor="position">Position:</label>
+                  <input 
+                  type="text"
+                  name="position"
+                  value={this.state.position}
+                  onChange={this.handleChange}
+                  />
+
+                  <label htmlFor="mainTask">Main Responsibility:</label>
+                  <input 
+                  type="text" 
+                  name="mainTask"
+                  value={this.state.mainTask}
+                  onChange={this.handleChange}
+                  />
+
+                  <label htmlFor="dateOfJob">Date of Your Job:</label>
+                  <input 
+                  type="text"
+                  name="dateOfJob"
+                  value={this.state.dateOfJob}
+                  onChange={this.handleChange}
+                  />
+                  <button type="submit">Submit</button>
+                  <button>Reset</button>
+             </form>  
+
+             <DisplayInfo 
+              userName={this.state.username}
+              email={this.state.email} 
+              phone={this.state.phone}
+
+              school={this.state.schoolName}
+              titleOfStd ={this.state.titleOfStd}
+              dateOfStd={this.state.dateOfStd}
+
+              companyName={this.state.companyName}
+              position={this.state.position}
+              mainTask={this.state.mainTask}
+              dateOfJob={this.state.dateOfJob}
+              
+             />
           </div>  
         );
     }

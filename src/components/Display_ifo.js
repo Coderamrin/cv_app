@@ -1,8 +1,7 @@
 import React from "react";
 
 const DisplayInfo = (props) => {
-    const {userName, email, phone} = props;
-    console.log(props);
+    const {userName, email, phone, school, titleOfStd, dateOfStd, company, position, mainTask, dateOfJob} = props;  
     return(
         <div>
             <div className="generalInfo">
@@ -13,14 +12,18 @@ const DisplayInfo = (props) => {
             </div>
 
             <div className="educationalExp">
-                <h1>Educational Experties:</h1>
-                <h2>School Name: </h2>
-                <h2>Title of Study: </h2>
-                <h2>Date of Study: </h2>
+                <h1>Educational Experties: </h1>
+                <h2>School Name: {school} </h2>
+                <h2>Title of Study: {titleOfStd}</h2>
+                <h2>Date of Study: {dateOfStd} </h2>
             </div>
 
             <div className="practExp">
-                
+                <h1> Practical experieces: </h1>
+                <h2>Company Name: {company} </h2>
+                <h2> Position: {position} </h2>
+                <h2>Main Task: {mainTask} </h2>
+                <h2>Date of The Job: {dateOfJob} </h2>
             </div>
 
         </div>
