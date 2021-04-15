@@ -23,17 +23,46 @@ class Form extends React.Component {
             [target.name]: target.value
         });
 
-        console.log(this.state);
     };
 
     onSubmitTask = (e) => {
         e.preventDefault();
     }
 
+    resetGInfo = (e) => {
+        e.preventDefault();
+        this.setState({
+            username: "",
+            email: "",
+            phone: ""
+        });
+    }
+
+    resetEducation = (e) => {
+        e.preventDefault();
+        this.setState({
+            schoolName: "",
+            titleOfStd: "",
+            dateOfStd: "",
+        });
+    }
+
+    resetPract = (e) => {
+        e.preventDefault();
+        this.setState({
+            companyName: "",
+            position: "",
+            mainTask: "",
+            dateOfJob: ""
+        });
+    }
+
+
     render () {
         return (
           <div className="form_container">
-              <form onSubmit={this.onSubmitTask}>
+              <h1 className="title">CV APP WITH React</h1>
+             <form>
                   <label htmlFor="username">Name:</label>
                   <input 
                   type="text" 
@@ -48,6 +77,7 @@ class Form extends React.Component {
                   name="email"
                   value={this.state.email}
                   onChange={this.handleChange}
+                  
                   />
 
                   <label htmlFor="phone">Phone Number:</label>
@@ -58,10 +88,9 @@ class Form extends React.Component {
                   onChange={this.handleChange} 
                   />
 
-                  <button type="submit">Submit</button>
-                  <button>Reset</button>
+                  <button type="submit" onClick={this.resetGInfo}>Reset</button>
               </form>
-              <form onSubmit={this.onSubmitTask}>
+             <form>
                   <label htmlFor="schoolName">School Name:</label>
                   <input 
                   type="text"
@@ -85,10 +114,9 @@ class Form extends React.Component {
                   value={this.state.dateOfStd}
                   onChange={this.handleChange}
                   />
-                  <button type="submit">Submit</button>
-                  <button>Reset</button>
+                  <button type="submit">Reset</button>
              </form>
-             <form onSubmit={this.onSubmitTask}>  
+             <form>  
                   <label htmlFor="companyName">Company Name:</label>
                   <input
                   type="text"
@@ -120,8 +148,7 @@ class Form extends React.Component {
                   value={this.state.dateOfJob}
                   onChange={this.handleChange}
                   />
-                  <button type="submit">Submit</button>
-                  <button>Reset</button>
+                  <button type="submit">Reset</button>
              </form>  
 
              <DisplayInfo 

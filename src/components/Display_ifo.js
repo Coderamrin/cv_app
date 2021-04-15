@@ -1,9 +1,10 @@
 import React from "react";
+import '../index.css'; 
 
 const DisplayInfo = (props) => {
     const {userName, email, phone, school, titleOfStd, dateOfStd, company, position, mainTask, dateOfJob} = props;  
     return(
-        <div>
+        <div className="container">
             <div className="generalInfo">
                 <h1>General Informaiton:</h1>
                 <h2>Name: {userName}</h2>

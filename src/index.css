@@ -13,19 +13,38 @@ code {
 }
 
 .form_container {
-  margin-left: 20px;
-  margin-bottom: 30px;
+  width: 50%; 
+  margin: auto;
 }
 
 form {
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
+  margin-top: 20px; 
 }
 
 input {
   display: block;
+  width: 100%;
+  margin-top: 10px; 
+  height: 20px;
 }
 
 button {
   margin-right: 20px;
   margin-top: 10px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 70px;
+  background: rgb(0, 84, 153);
+  color: rgb(255, 255, 255);
+}
+
+.title {
+  text-align: center;
+  background: rgb(0, 84, 153);
+  color: rgb(255, 255, 255);
+  padding: 20px;
 }
