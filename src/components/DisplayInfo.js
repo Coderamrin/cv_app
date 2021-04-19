@@ -1,44 +1,35 @@
 import React from "react";
-import "../index.css";
-
+ 
 const DisplayInfo = (props) => {
-    const {
-        userName,
-        email,
-        phone,
-        school,
-        titleOfStd,
-        dateOfStd,
-        company,
-        position,
-        mainTask,
-        dateOfJob,
-    } = props;
-    return (
-        <div className="container">
+     const {userName, email, phone, school, titleOfStd, startDateOfStd, endDateOfStd, company, position, mainTask, startDateOfJob, endDateOfJob} = props; 
+    return(
+        <div>
             <div className="generalInfo">
                 <h1>General Informaiton:</h1>
                 <h2>Name: {userName}</h2>
                 <h2>Email: {email}</h2>
-                <h2>Phone: {phone}</h2>
+                <h2>Phone: {phone}</h2>  
             </div>
 
             <div className="educationalExp">
-                <h1>Educational Experties: </h1>
+                <h1>Educational Experties:</h1>
                 <h2>School Name: {school} </h2>
                 <h2>Title of Study: {titleOfStd}</h2>
-                <h2>Date of Study: {dateOfStd} </h2>
-            </div>
+                <h2>Date of Study: {startDateOfStd}</h2>
+                <h2>Date of Study: {endDateOfStd}</h2>
+            </div> 
 
             <div className="practExp">
                 <h1> Practical experieces: </h1>
                 <h2>Company Name: {company} </h2>
                 <h2> Position: {position} </h2>
                 <h2>Main Task: {mainTask} </h2>
-                <h2>Date of The Job: {dateOfJob} </h2>
+                <h2>Date of The Job: {startDateOfJob} </h2> 
+                <h2>Date of The Job: {endDateOfJob} </h2>
             </div>
-        </div>
+
+        </div> 
     );
-};
+}
 
 export default DisplayInfo;

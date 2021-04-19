@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
+import ReactDOM from "react-dom";
 import { handleChange } from "./Form";
-
+import DisplayInfo from "./DisplayInfo";
+ 
 function GeneralInfo() {
   let [name, setName] = useState("Jhon Doe");
   let [email, setEmail] = useState("jhon@Doe.com");
@@ -10,8 +12,19 @@ function GeneralInfo() {
     document.title = "CV APP";
   })
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    let info = <> 
+      <div>school:<span>{name}</span> </div>
+      <div>title:<span>{email}</span> </div>
+      <div>From:<span>{phone}</span> </div>  
+    </> 
+
+    ReactDOM.render(info, document.getElementById("info"))
+  }
+
   return ( 
-      <div className="generalInfo"> 
+      <div className="generalInfo" id="info"> 
         <form action="">
           <label htmlFor={name}>Name:</label>
           <input
@@ -38,7 +51,10 @@ function GeneralInfo() {
           onChange={(e) => {
             handleChange(e, setPhone)
           }}
-          />  
+          />
+          <button type="submit" className="submit" onClick={handleSubmit}>
+            Submit
+          </button>    
         </form>
       </div>
     );

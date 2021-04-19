@@ -1,7 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import GeneralInfo from "./GeneralInfo"
 import Education from "./Education"; 
-import PracticalExp from "./PracticalExp";
+import {PracticalExp} from "./PracticalExp";
+import DisplayInfo from "./DisplayInfo";
 
 function Form() {
 
@@ -10,10 +11,15 @@ function Form() {
   })
 
   return (
-    <div>
-      <GeneralInfo/>
-      <Education/>
-      <PracticalExp/> 
+
+    <div > 
+      <h1 className="header">CV APP With React</h1>
+      <div className="container">
+        <h3>General Info</h3>  
+        <GeneralInfo/>
+        <Education/>
+        <PracticalExp/>         
+      </div> 
     </div>
     );
 }
@@ -22,5 +28,4 @@ function handleChange(e, setValue) {
   setValue(e.target.value);
 } 
 
-
-export { Form, handleChange }; 
+export { Form, handleChange}; 

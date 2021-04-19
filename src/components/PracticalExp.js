@@ -1,15 +1,39 @@
-import React, {useState} from "react";
+import React, {useState, Fragment} from "react";
+import ReactDOM from "react-dom";
 import {handleChange} from "./Form"; 
+import DisplayInfo from "./DisplayInfo";
 
 function PracticalExp() {
-  let [company, setCompany] = useState("Intel");
-  let [position, setPosition] = useState("Tech Lead");
-  let [task, setTask] = useState("maneging team");
+	return (
+		<Fragment>
+			<h3>Practial Experience</h3>
+			<PracticalExpForm/>
+		</Fragment>
+		)
+}
+
+function PracticalExpForm() {
+  let [company, setCompany] = useState("xyz");
+  let [position, setPosition] = useState("");
+  let [task, setTask] = useState("");
   let [startOfJob, setStartofjob] = useState("");
   let [endOfJob, setEndofjob] = useState("");
 
-  return (
-      <div className="practicalExp">
+  function handleSubmit(e) {
+    e.preventDefault();
+    let exps = <>
+      <div> company: <span>{company}</span></div>
+      <div>position:<span>{position}</span></div>
+      <div>task:<span>{task}</span></div>
+      <div>From:<span>{startOfJob}</span></div>
+      <div>To:<span>{endOfJob}</span></div>
+    </>
+
+    ReactDOM.render(exps, document.getElementById("exps")) 
+  }
+
+  return ( 
+      <div className="practicalExp" id="exps">
         <form action="">
           <label htmlFor="company">
             Compay Name:
@@ -64,10 +88,21 @@ function PracticalExp() {
             handleChange(e, setEndofjob)
           }}
           />
+          <button type="submit" className="submit" onClick={handleSubmit}>
+            Submit
+          </button>  
         </form>
-        <button>Add</button>
       </div>
-      )
+      )   
 } 
 
-export default PracticalExp;
+// function Addform() { 
+//   let [count, setCount] = useState(0);
+
+//   return <div> 
+//     { [...Array(count)].map((_, i) => <PracticalExpForm key={i} />) }
+//     <button  onClick={() => setCount(count + 1)} >Add</button>
+//   </div>
+// } 
+
+export {PracticalExp}; 
