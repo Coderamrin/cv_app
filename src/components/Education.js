@@ -1,100 +1,46 @@
-import React, {useState, Fragment} from "react";
-import ReactDOM from 'react-dom';
-import {handleChange} from "./Form";
-import DisplayInfo from "./DisplayInfo";
+import React from 'react';
 
-function Education(props) {
-    return(
-        <Fragment>
-          <h3>Education</h3>
-          <EducationForm/>
-        </Fragment> 
-      )
-}
-
-function EducationForm() {
-  let [school, setSchool] = useState("xyz school");
-  let [titleOfStudy, setTitleofstudy] = useState("MBA");
-  let [startOfStudy, setStartofstudy] = useState("22/33/1999");
-  let [endOfStudy, setEndofstudy] = useState("22/33/2000");
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    let edu = <> 
-      <div>school:<span>{school}</span> </div>
-      <div>title:<span>{titleOfStudy}</span> </div>
-      <div>From:<span>{startOfStudy}</span> </div>
-      <div>To:<span>{endOfStudy}</span> </div>  
-    </>
-
-    ReactDOM.render(edu, document.getElementById("edu"))
-  }
-
+function Education({ state, handleChange }) {
+  const { school, degree, fieldOfStudy } = state;
   return (
-      <div className="education" id="edu">
-        <form action="" className="form" >
-          <label htmlFor="schoolName">
-            School Name:
-          <input 
-          type="text"
+    <div>
+      <h2>Education</h2>
+      <div className='education-01'>
+        <label htmlFor='school'>School</label>
+
+        <input
+          type='text'
+          className='form-control'
+          id='school'
+          placeholder='School'
           value={school}
-          onChange={(e) => {
-            handleChange(e, setSchool)
-          }}
-          />            
-          </label>
+          onChange={handleChange}
+        />
 
-        <label htmlFor="titleOfStudy">
-            Title of Study:
-          <input 
-          type="text"
-          value={titleOfStudy}
-          onChange={(e) => {
-            handleChange(e, setTitleofstudy)
-          }}
-          />            
-          </label>
+        <label htmlFor='degree'>Degree</label>
 
-          <label htmlFor="schoolName">
-            Start of Study:
-          <input 
-          type="date"
-          value={startOfStudy}
-          onChange={(e) => {
-            handleChange(e, setStartofstudy)
-          }}
-          />            
-          </label> 
+        <input
+          type='text'
+          className='form-control'
+          id='degree'
+          placeholder='Degree'
+          value={degree}
+          onChange={handleChange}
+        />
 
+        <label htmlFor='fieldOfStudy'>Field of Study</label>
 
-          <label htmlFor="schoolName">
-            End of Study:
-          <input 
-          type="date"
-          value={endOfStudy}
-          onChange={(e) => {
-            handleChange(e, setEndofstudy)
-          }}
-          />             
-          </label>
-
-          <button type="submit" className="submit" onClick={handleSubmit}>
-            Submit
-          </button>  
-        </form> 
-
-      </div> 
-      ) 
+        <input
+          type='text'
+          className='form-control'
+          id='fieldOfStudy'
+          placeholder='Field of Study'
+          value={fieldOfStudy}
+          onChange={handleChange}
+        />
+      </div>
+    </div>
+  );
 }
-
-// function Addform() {
-//   let [count, setCount] = useState(0);
-
-//   return <div> 
-//     { [...Array(count)].map((_, i) => <EducationForm key={i} />) }
-//     <button  onClick={() => setCount(count + 1)}>Add</button>
-//   </div>
-// } 
 
 export default Education;
-
